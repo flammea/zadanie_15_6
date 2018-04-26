@@ -1,0 +1,16 @@
+* {
+  margin: 50px auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.controls #stop, #start {
+  text-decoration: none;
+  height: 50px;
+  width: 200px;
+  color: #FFFFFF;
+  background-color: #26de81;
+}
+
+
+
