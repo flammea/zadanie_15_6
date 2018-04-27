@@ -71,6 +71,24 @@ var Stopwatch = function () {
             this.running = false;
             clearInterval(this.watch);
         }
+    }, {
+        key: 'add',
+        value: function add() {
+            var addResultsList = document.querySelector('.results');
+            var addResultItem = document.createElement('li');
+            addResultItem.className = 'result';
+            addResultsList.appendChild(addResultItem);
+            addResultItem.innerHTML = this.display.innerText;
+            this.reset();
+            this.start();
+        }
+    }, {
+        key: 'resetList',
+        value: function resetList() {
+            this.reset();
+            var resetResultsList = document.querySelector('.results');
+            resetResultsList.innerHTML = '';
+        }
     }]);
 
     return Stopwatch;
@@ -86,6 +104,21 @@ startButton.addEventListener('click', function () {
 var stopButton = document.getElementById('stop');
 stopButton.addEventListener('click', function () {
     return stopwatch.stop();
+});
+
+var resetButton = document.getElementById('resetbtn');
+resetButton.addEventListener('click', function () {
+    return stopwatch.reset();
+});
+
+var addToListButton = document.getElementById('add');
+addToListButton.addEventListener('click', function () {
+    return stopwatch.add();
+});
+
+var resetListButton = document.getElementById('reset_list');
+resetListButton.addEventListener('click', function () {
+    return stopwatch.resetList();
 });
 
 function pad0(value) {

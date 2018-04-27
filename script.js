@@ -6,7 +6,7 @@ class Stopwatch {
         this.print(this.times);
     }
 
-     reset() {
+    reset() {
         this.times = {
             minutes: 0,
             seconds: 0,
@@ -53,16 +53,41 @@ class Stopwatch {
     clearInterval(this.watch);
 	}
 
+	add() {
+    const addResultsList = document.querySelector('.results');
+    const addResultItem = document.createElement('li');
+    addResultItem.className = 'result';
+    addResultsList.appendChild(addResultItem);
+    addResultItem.innerHTML = this.display.innerText;
+    this.reset();
+    this.start();
+  }
+
+  resetList() {
+    this.reset();
+    const resetResultsList = document.querySelector('.results');
+    resetResultsList.innerHTML = '';
+  }
+
 }
 
 const stopwatch = new Stopwatch(
 document.querySelector('.stopwatch'));
 
-let startButton = document.getElementById('start');
+const startButton = document.getElementById('start');
 startButton.addEventListener('click', () => stopwatch.start());
 
-let stopButton = document.getElementById('stop');
+const stopButton = document.getElementById('stop');
 stopButton.addEventListener('click', () => stopwatch.stop());
+
+const resetButton = document.getElementById('resetbtn');
+resetButton.addEventListener('click', () => stopwatch.reset());
+
+const addToListButton = document.getElementById('add');
+addToListButton.addEventListener('click', () => stopwatch.add());
+
+const resetListButton = document.getElementById('reset_list');
+resetListButton.addEventListener('click', () => stopwatch.resetList());
 
 function pad0(value) {
     let result = value.toString();
