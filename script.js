@@ -10,8 +10,9 @@ class Stopwatch {
         this.times = {
             minutes: 0,
             seconds: 0,
-            miliseconds: 0
+            miliseconds: 0,
         };
+       	this.display.innerText = this.format(this.times);
     }
 
 
@@ -61,9 +62,9 @@ class Stopwatch {
     addResultItem.innerHTML = this.display.innerText;
     this.reset();
     this.start();
-  }
+  	}
 
-  resetList() {
+  	resetList() {
     this.reset();
     const resetResultsList = document.querySelector('.results');
     resetResultsList.innerHTML = '';
